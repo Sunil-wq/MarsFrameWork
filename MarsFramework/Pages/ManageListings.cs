@@ -23,7 +23,11 @@ namespace MarsFramework.Pages
         private IWebElement servicemanageListingsLink { get; set; }
 
         //View the listing
-        [FindsBy(How = How.XPath, Using = "//*[@id='listing-management-section']/div[2]/div[1]/table/tbody/tr[1]/td[8]/i[1]")]
+       // [FindsBy(How = How.XPath, Using = "//*[@id='listing-management-section']/div[2]/div[1]/table/tbody/tr[1]/td[8]/i[1]")]
+       // private IWebElement view { get; set; }
+        
+        //View the listing
+        [FindsBy(How = How.XPath, Using = "//*[@id='listing-management-section']/div[2]/div[1]/div[1]/table/tbody/tr[1]/td[8]/div/button[1]/i")]
         private IWebElement view { get; set; }
 
         //Delete the listing
@@ -44,57 +48,94 @@ namespace MarsFramework.Pages
             GlobalDefinitions.wait(2000);
             manageListingsLink.Click();
             Thread.Sleep(2000);
-            view.Click();
-            servicemanageListingsLink.Click();
+            while (true)
+            {
+                for (int i = 1; i < 5; i++)
+                {
+                    IWebElement ela = GlobalDefinitions.driver.FindElement(By.XPath("//*[@id='listing-management-section']/div[2]/div[1]/div[1]/table/tbody/tr[" + i + "]/td[3]"));
+                    String Eleme = ela.Text;
+                    if (Eleme == "Java")
+                    {
+                        GlobalDefinitions.wait(2000);
+                        GlobalDefinitions.driver.FindElement(By.XPath("//*[@id='listing-management-section']/div[2]/div[1]/div[1]/table/tbody/tr[" + i + "]/td[8]/div/button[1]/i")).Click();
+                        servicemanageListingsLink.Click();
+                        return;
+                    }
+
+
+                }
+                Thread.Sleep(2000);
+                GlobalDefinitions.driver.FindElement(By.XPath("//*[@id='listing-management-section']/div[2]/div[1]/div[2]/button[10]")).Click();
+            }
+            
+           
 
 
 
         }
         internal void UpdateListing()
         {
-            Thread.Sleep(2000);
-            edit.Click();
-        }
+            GlobalDefinitions.wait(2000);
+            while (true)
+            {
+                for (int i = 1; i < 5; i++)
+                {
+                    IWebElement ela = GlobalDefinitions.driver.FindElement(By.XPath("//*[@id='listing-management-section']/div[2]/div[1]/div[1]/table/tbody/tr[" + i + "]/td[3]"));
+                    String Eleme = ela.Text;
+                    if (Eleme == "Java")
+                    {
+                        Thread.Sleep(2000);
+                        GlobalDefinitions.driver.FindElement(By.XPath("//*[@id='listing-management-section']/div[2]/div[1]/div[1]/table/tbody/tr[" + i + "]/td[8]/div/button[2]/i")).Click();
+                        ShareSkill updte = new ShareSkill();
+                        updte.EditShareSkill();
+                        return;
+                    }
+                }
+                Thread.Sleep(2000);
+                GlobalDefinitions.driver.FindElement(By.XPath("//*[@id='listing-management-section']/div[2]/div[1]/div[2]/button[10]")).Click();
+
+            }
+            }
         internal void Delete()
         {
            // Populate the Excel Sheet
-             GlobalDefinitions.ExcelLib.PopulateInCollection(Base.ExcelPath, "ManageListings");
+            // GlobalDefinitions.ExcelLib.PopulateInCollection(Base.ExcelPath, "ManageListings");
             GlobalDefinitions.wait(2000);
             manageListingsLink.Click();
             GlobalDefinitions.wait(2000);
-            try
+            while (true)
             {
-                while (true)
+                for (int i = 1; i < 5; i++)
                 {
-                    for (int i = 1; i <= 5; i++)
+                    IWebElement ela = GlobalDefinitions.driver.FindElement(By.XPath("//*[@id='listing-management-section']/div[2]/div[1]/div[1]/table/tbody/tr[" + i + "]/td[3]"));
+                    String Eleme = ela.Text;
+                    
+                    if (Eleme == "Selenium")
                     {
-                        IWebElement code = GlobalDefinitions.driver.FindElement(By.XPath("//*[@id='listing-management-section']/div[2]/div[1]/table/tbody/tr[" + i + "]/td[3]"));
-
-
-                        if (code.Text == "Selenium")
+                        GlobalDefinitions.wait(2000);
+                        GlobalDefinitions.driver.FindElement(By.XPath("//*[@id='listing-management-section']/div[2]/div[1]/div[1]/table/tbody/tr[" + i + "]/td[8]/div/button[3]/i")).Click();
+                        Thread.Sleep(2000);
+                        foreach (string handle in GlobalDefinitions.driver.WindowHandles)
                         {
-
-                            Thread.Sleep(5000);
-                            delete.Click();
-                            Thread.Sleep(5000);
-                            clickActionsButton.Click();
-                            return;
+                            IWebDriver popup = GlobalDefinitions.driver.SwitchTo().Window(handle);
+                            if (popup.Title.Contains("Delete Your Service"))
+                            {
+                                break;
+                            }
                         }
+                        IWebElement closebutton = GlobalDefinitions.driver.FindElement(By.XPath("/html/body/div[2]/div/div[3]/button[2]"));
+                        closebutton.Click();
+                        return;
                     }
-
-                    GlobalDefinitions.wait(2000);
-                    GlobalDefinitions.driver.FindElement(By.XPath("//*[@id='listing-management-section']/div[2]/div[1]/div/button[10]")).Click();
 
 
                 }
+                Thread.Sleep(2000);
+                GlobalDefinitions.driver.FindElement(By.XPath("//*[@id='listing-management-section']/div[2]/div[1]/div[2]/button[10]")).Click();
             }
-            catch (Exception)
-            {
-                Console.WriteLine("not found");
-            }
-           
-           
-           
+
+
+
         }
     }
 }

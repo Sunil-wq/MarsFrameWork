@@ -122,19 +122,19 @@
     <comment>1 for firefox and 2 for Chrome</comment>
   </data>
   <data name="ExcelPath" xml:space="preserve">
-    <value>C:\Users\Owner\source\repos\marsframework-master\marsframework-master\MarsFramework\ExcelData\TestDataShareSkill.xlsx</value>
+    <value />
   </data>
   <data name="IsLogin" xml:space="preserve">
     <value>true</value>
     <comment>If true Login, else Register</comment>
   </data>
   <data name="ReportPath" xml:space="preserve">
-    <value>C:\Users\Owner\source\repos\marsframework-master\marsframework-master\MarsFramework\TestReports\MarsReports.html</value>
+    <value>C:\Users\Owner\source\repos\marsframework-master\marsframework-master\marsframework-master\MarsFramework\TestReports\MarsReports.html</value>
   </data>
   <data name="ReportXMLPath" xml:space="preserve">
-    <value>C:\Users\Owner\source\repos\marsframework-master\marsframework-master\MarsFramework\Config\XMLFile.xml</value>
+    <value>C:\Users\Owner\source\repos\marsframework-master\marsframework-master\marsframework-master\MarsFramework\Config\XMLFile.xml</value>
   </data>
   <data name="ScreenShotPath" xml:space="preserve">
-    <value>C:\Users\Owner\source\repos\marsframework-master\marsframework-master\MarsFramework\TestReports\Screenshots</value>
+    <value>C:\Users\Owner\source\repos\marsframework-master\marsframework-master\marsframework-master\MarsFramework\TestReports\Screenshots</value>
   </data>
 </root>

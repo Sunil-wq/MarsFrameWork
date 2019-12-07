@@ -14,6 +14,7 @@ namespace MarsFramework.Pages
 
         #region  Initialize Web Elements 
         //Finding the Sign Link
+        
         [FindsBy(How = How.XPath, Using = "//*[@id='home']/div/div/div[1]/div/a")]
         private IWebElement SignIntab { get; set; }
 
@@ -34,7 +35,7 @@ namespace MarsFramework.Pages
         internal void LoginSteps()
         {
             //Populate the excel data
-            GlobalDefinitions.ExcelLib.PopulateInCollection(Base.ExcelPath, "SignIn");
+            GlobalDefinitions.ExcelLib.PopulateInCollection(@"C:\Users\Owner\source\repos\marsframework-master\MarsFramework-master\MarsFramework\ExcelData\TestDataShareSkill.xlsx", "SignIn");
             //Click on Join button
             SignIntab.Click();
 

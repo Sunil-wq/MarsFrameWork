@@ -13,23 +13,27 @@ namespace MarsFramework
             [Test]
             public void Test()
             {
+               
                 ShareSkill adddetails = new ShareSkill();
-                adddetails.EnterShareSkill();
+                 adddetails.EnterShareSkill();
+               
+                    
                                            
             }
             [Test]
             public void Test1()
             {
+              
                 ManageListings manage = new ManageListings();
                 manage.Listings();
                 manage.UpdateListing();
-                ShareSkill adddetails = new ShareSkill();
-                adddetails.EditShareSkill();
+               
 
             }
             [Test]
             public void Test2()
             {
+               
                 ManageListings manage = new ManageListings();
                 manage.Delete();
                

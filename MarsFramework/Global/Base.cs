@@ -81,8 +81,8 @@ namespace MarsFramework.Global
 
             // Screenshot
             
-            String img = SaveScreenShotClass.SaveScreenshot(GlobalDefinitions.driver, "Report");//AddScreenCapture(@"C:\Users\Owner\Downloads\marsframework-master\marsframework-master\MarsFramework\TestReports\ScreenShots\");
-           ExtentReports();
+            String img = SaveScreenShotClass.SaveScreenshot(GlobalDefinitions.driver, "Report");//AddScreenCapture(@"C:\Users\Owner\source\repos\marsframework-master\marsframework-master\marsframework-master\MarsFramework\TestReports\Screenshots");
+            ExtentReports();
             test = extent.StartTest("Test Pass");
             test.Log(LogStatus.Info, "Image example: " + img);
             //end test. (Reports)
