@@ -206,11 +206,16 @@
     </Compile>
     <Compile Include="Global\Base.cs" />
     <Compile Include="Global\GlobalDefinitions.cs" />
+    <Compile Include="Pages\Details.cs" />
     <Compile Include="Pages\ManageListings.cs" />
+    <Compile Include="Pages\manageRequest.cs" />
+    <Compile Include="Pages\ProfileDesc.cs" />
+    <Compile Include="Pages\Search.cs" />
     <Compile Include="Pages\ShareSkill.cs" />
     <Compile Include="Pages\SignIn.cs" />
     <Compile Include="Pages\SignUp.cs" />
     <Compile Include="Pages\Profile.cs" />
+    <Compile Include="Pages\Skills.cs" />
     <Compile Include="Test\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -226,6 +231,26 @@
   <ItemGroup>
     <None Include="app.config" />
     <None Include="ExcelData\TestData.xlsx" />
+    <None Include="Features\Steps\ManageListing.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>ManageListing.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\Steps\ProfileDescription.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>ProfileDescription.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\Steps\ProfileSkill.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>ProfileSkill.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\Steps\SearchSkill.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>SearchSkill.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\Steps\SignIn.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>SignIn.feature.cs</LastGenOutput>
+    </None>
     <None Include="packages.config" />
     <None Include="TestCase_skill share.xlsx" />
   </ItemGroup>

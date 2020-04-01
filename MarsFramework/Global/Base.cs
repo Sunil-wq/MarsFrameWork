@@ -1,6 +1,7 @@
 ﻿using MarsFramework.Config;
 using MarsFramework.Pages;
 using NUnit.Framework;
+using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Firefox;
 using RelevantCodes.ExtentReports;
@@ -52,7 +53,7 @@ namespace MarsFramework.Global
                     break;
 
             }
-            driver.Navigate().GoToUrl("http://www.skillswap.pro/Home");
+            driver.Navigate().GoToUrl("http://localhost:5000/");
 
          //  extent = new ExtentReports(ReportPath, false, DisplayOrder.NewestFirst);
           // extent.LoadConfig(MarsResource.ReportXMLPath);
@@ -63,6 +64,9 @@ namespace MarsFramework.Global
           {
                 SignIn loginobj = new SignIn();
                loginobj.LoginSteps();
+                wait(20);
+                IWebElement SignOut = driver.FindElement(By.XPath("//*[@id='account-profile-section']/div/div[1]/div[2]/div/a[2]/button"));
+                Assert.IsTrue(SignOut.Enabled);
             }
            else
            {

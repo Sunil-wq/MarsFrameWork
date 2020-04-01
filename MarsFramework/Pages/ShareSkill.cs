@@ -120,9 +120,9 @@ namespace MarsFramework.Pages
 
         [FindsBy(How = How.XPath, Using = "//*[@id='service-listing-section']/div[2]/div/form/div[4]/div[2]/div/div/div/span")]
         private IWebElement SavedTag { get; set; }
-       // public object AutoItX { get; private set; }
+        // public object AutoItX { get; private set; }
 
-        #endregion
+     #endregion
 
         internal void EnterShareSkill()
         {
@@ -203,7 +203,7 @@ namespace MarsFramework.Pages
             //string edate = GlobalDefinitions.ExcelLib.ReadData(2, "Enddate");
             //string newEndDate = DateTime.Parse(edate).ToString(dateformat);
            // EndDateDropDown.SendKeys(newEndDate);
-            EndDateDropDown.SendKeys("12252019");
+            EndDateDropDown.SendKeys("04122020");
 
              string EndDate = EndDateDropDown.GetAttribute("Value");
              if (EndDate.Length == 0)
@@ -248,7 +248,7 @@ namespace MarsFramework.Pages
 
             }
             else if (GlobalDefinitions.ExcelLib.ReadData(2, "SkillTrade") == "Credit")
-            {
+            { 
                 CreditOption.Click();
                 CreditAmount.SendKeys(GlobalDefinitions.ExcelLib.ReadData(2, "Credit"));
             }
@@ -360,7 +360,7 @@ namespace MarsFramework.Pages
             //  string edate = GlobalDefinitions.ExcelLib.ReadData(3, "Enddate");
             //  string newEndDate = DateTime.Parse(edate).ToString(dateformat);
             // EndDateDropDown.SendKeys(newEndDate);
-            EndDateDropDown.SendKeys("12272019");
+            EndDateDropDown.SendKeys("04152020");
 
             string EndDate = EndDateDropDown.GetAttribute("Value");
             if (EndDate.Length == 0)
@@ -391,11 +391,11 @@ namespace MarsFramework.Pages
            // string newEndTime = DateTime.Parse(etime).ToString(timeformat);
            // EndTimeDropDown.SendKeys(newEndTime);
 
-            string End = EndTimeDropDown.GetAttribute("Value");
-            if (End.Length == 0)
-            {
-                Assert.IsEmpty("Endtime");
-            }
+            //string End = EndTimeDropDown.GetAttribute("Value");
+           // if (End.Length == 0)
+           // {
+            //    Assert.IsEmpty("Endtime");
+           // }
 
             //Click on Skill-exchange or Credit
             if (GlobalDefinitions.ExcelLib.ReadData(3, "SkillTrade") == "Skill-exchange")
